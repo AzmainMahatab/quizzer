@@ -4,6 +4,7 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { useRouter, usePathname } from 'next/navigation';
 import { auth } from '../../lib/firebase/Auth';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const router = useRouter();
@@ -16,7 +17,7 @@ export default function Header() {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, cursor: 'pointer' }} onClick={() => router.push('/') }>
           <Typography variant="h6" sx={{ fontWeight: 800 }}>Quizzer</Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <Button variant={pathname === '/' ? 'contained' : 'text'} onClick={() => router.push('/')}>Home</Button>
           <Button variant={pathname?.startsWith('/newquiz') ? 'contained' : 'text'} onClick={() => router.push('/newquiz')}>New Quiz</Button>
           <Button variant={pathname?.startsWith('/leaderboard') ? 'contained' : 'text'} onClick={() => router.push('/leaderboard')}>Leaderboard</Button>
@@ -25,6 +26,7 @@ export default function Header() {
           ) : (
             <Button variant="outlined" onClick={() => router.push('/signin')}>Sign in</Button>
           )}
+          <ThemeToggle />
         </Box>
       </Toolbar>
     </AppBar>
