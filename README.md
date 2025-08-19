@@ -4,10 +4,10 @@ A Simple quiz project
 
 ## Run locally
 
-- Install deps: `npm install`
-- Start dev server: `npm run dev`
-- Build: `npm run build`
-- Start production: `npm start`
+- Install deps: `pnpm install`
+- Start dev server: `next dev --turbopack`
+- Build: `next build`
+- Start production: `next start`
 
 ## Environment variables
 
